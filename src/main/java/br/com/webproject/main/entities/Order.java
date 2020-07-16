@@ -2,8 +2,6 @@ package br.com.webproject.main.entities;
 
 import br.com.webproject.main.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -12,7 +10,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "TbOrder")
 public class Order implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -24,7 +21,7 @@ public class Order implements Serializable {
 
     private Integer orderStatus;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
 
